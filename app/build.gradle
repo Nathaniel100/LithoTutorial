@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  defaultConfig {
+    applicationId "io.github.ginger.lithotutorial"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+  implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+  // Arch
+  implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+  // Litho
+  implementation "com.facebook.litho:litho-core:$lithoVersion"
+  implementation "com.facebook.litho:litho-widget:$lithoVersion"
+  compileOnly "com.facebook.litho:litho-annotations:$lithoVersion"
+  kapt "com.facebook.litho:litho-processor:$lithoVersion"
+  // Litho Sections
+  implementation "com.facebook.litho:litho-sections-core:$lithoVersion"
+  implementation "com.facebook.litho:litho-sections-widget:$lithoVersion"
+  compileOnly "com.facebook.litho:litho-sections-annotations:$lithoVersion"
+  kapt "com.facebook.litho:litho-sections-processor:$lithoVersion"
+  // SoLoader
+  implementation "com.facebook.soloader:soloader:$soloaderVersion"
+  // Fresco
+  implementation "com.facebook.fresco:fresco:$frescoVersion"
+  // For integration with Fresco
+  implementation "com.facebook.litho:litho-fresco:$lithoVersion"
+  // For testing litho
+  testImplementation "com.facebook.litho:litho-testing:$lithoVersion"
+
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
