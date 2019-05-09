@@ -22,28 +22,31 @@ import io.github.ginger.lithotutorial.lithography.data.Decade
 object DecadeSectionSpec {
   @OnCreateChildren
   fun onCreateChildren(c: SectionContext, @Prop decade: Decade) =
-      Children.create()
-          .child(
-              SingleComponentSection.create(c)
-                  .component(DecadeSeperator.create(c).decade(decade))
-                  .sticky(true))
-          .child(
-              DataDiffSection.create<Artist>(c)
-                  .data(decade.artists)
-                  .renderEventHandler(DecadeSection.render(c))
-                  .onCheckIsSameItemEventHandler(DecadeSection.isSameItem(c)))
-          .build()
+    Children.create()
+      .child(
+        SingleComponentSection.create(c)
+          .component(DecadeSeperator.create(c).decade(decade))
+          .sticky(true)
+      )
+      .child(
+        DataDiffSection.create<Artist>(c)
+          .data(decade.artists)
+          .renderEventHandler(DecadeSection.render(c))
+          .onCheckIsSameItemEventHandler(DecadeSection.isSameItem(c))
+      )
+      .build()
 
   @OnEvent(RenderEvent::class)
   fun render(c: SectionContext, @FromEvent model: Artist): RenderInfo =
-      ComponentRenderInfo.create()
-          .component(FeedItemCard.create(c).artist(model).build())
-          .build()
+    ComponentRenderInfo.create()
+      .component(FeedItemCard.create(c).artist(model).build())
+      .build()
 
   @OnEvent(OnCheckIsSameItemEvent::class)
   fun isSameItem(
-      c: SectionContext,
-      @FromEvent previousItem: Artist,
-      @FromEvent nextItem: Artist): Boolean = previousItem.name == nextItem.name
+    c: SectionContext,
+    @FromEvent previousItem: Artist,
+    @FromEvent nextItem: Artist
+  ): Boolean = previousItem.name == nextItem.name
 
 }

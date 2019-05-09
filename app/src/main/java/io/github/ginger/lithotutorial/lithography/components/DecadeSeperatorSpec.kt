@@ -17,29 +17,33 @@ object DecadeSeperatorSpec {
 
   @OnCreateLayout
   fun onCreateLayout(
-      c: ComponentContext,
-      @Prop decade: Decade): Component =
-      Row.create(c)
-          .alignItems(CENTER)
-          .paddingDip(ALL, 16f)
-          .child(
-              Row.create(c)
-                  .heightPx(1)
-                  .backgroundColor(0xFFAAAAAA.toInt())
-                  .flex(1f))
-          .child(
-              Text.create(c)
-                  .text(decade.year.toString())
-                  .textSizeDip(14f)
-                  .textColor(0xFFAAAAAA.toInt())
-                  .marginDip(HORIZONTAL, 10f)
-                  .flex(0f))
-          .child(
-              Row.create(c)
-                  .heightPx(1)
-                  .backgroundColor(0xFFAAAAAA.toInt())
-                  .flex(1f))
-          .backgroundColor(0xFFFAFAFA.toInt())
-          .build()
+    c: ComponentContext,
+    @Prop decade: Decade
+  ): Component =
+    Row.create(c)
+      .alignItems(CENTER)
+      .paddingDip(ALL, 16f)
+      .child(
+        Row.create(c)
+          .heightPx(1)
+          .backgroundColor(0xFFAAAAAA.toInt())
+          .flex(1f)
+      )
+      .child(
+        Text.create(c)
+          .text(decade.year.toString())
+          .textSizeDip(14f)
+          .textColor(0xFFAAAAAA.toInt())
+          .marginDip(HORIZONTAL, 10f)
+          .flex(0f)
+      )
+      .child(
+        Row.create(c)
+          .heightPx(1)
+          .backgroundColor(0xFFAAAAAA.toInt())
+          .flex(1f)
+      )
+      .backgroundColor(0xFFFAFAFA.toInt())
+      .build()
 
 }

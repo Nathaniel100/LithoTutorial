@@ -3,9 +3,9 @@ package io.github.ginger.lithotutorial
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.NavUtils
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
 import io.github.ginger.lithotutorial.demo.DataModels
 import io.github.ginger.lithotutorial.demo.DemoListActivity
 import io.github.ginger.lithotutorial.demo.DemoListActivity.Companion.INDICES

@@ -16,15 +16,16 @@ object SingleImageComponentSpec {
 
   @OnCreateLayout
   fun onCreateLayout(
-      c: ComponentContext,
-      @Prop image: String,
-      @Prop(optional = true) imageAspectRatio: Float): Component =
-      Fresco.newDraweeControllerBuilder()
-          .setUri(image)
-          .build().let {
-            FrescoImage.create(c)
-                .controller(it)
-                .imageAspectRatio(imageAspectRatio)
-                .build()
-          }
+    c: ComponentContext,
+    @Prop image: String,
+    @Prop(optional = true) imageAspectRatio: Float
+  ): Component =
+    Fresco.newDraweeControllerBuilder()
+      .setUri(image)
+      .build().let {
+        FrescoImage.create(c)
+          .controller(it)
+          .imageAspectRatio(imageAspectRatio)
+          .build()
+      }
 }

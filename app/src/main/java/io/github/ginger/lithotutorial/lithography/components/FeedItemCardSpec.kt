@@ -15,17 +15,18 @@ import io.github.ginger.lithotutorial.lithography.data.Artist
 object FeedItemCardSpec {
   @OnCreateLayout
   fun onCreateLayout(c: ComponentContext, @Prop artist: Artist): Component =
-      Column.create(c)
-          .paddingDip(VERTICAL, 8f)
-          .paddingDip(HORIZONTAL, 16f)
-          .child(
-              Card.create(c)
-                  .content(
-                      FeedItemComponent.create(c)
-                          .artist(artist)
-                          .build()
-                  )
-                  .cornerRadiusDip(4f))
-          .build()
+    Column.create(c)
+      .paddingDip(VERTICAL, 8f)
+      .paddingDip(HORIZONTAL, 16f)
+      .child(
+        Card.create(c)
+          .content(
+            FeedItemComponent.create(c)
+              .artist(artist)
+              .build()
+          )
+          .cornerRadiusDip(4f)
+      )
+      .build()
 
 }

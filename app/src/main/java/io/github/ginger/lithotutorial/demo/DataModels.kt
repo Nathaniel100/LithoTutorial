@@ -10,7 +10,7 @@ object DataModels {
 
   fun getDataModels(indices: IntArray?): List<DemoListDataModel> {
     if (indices == null) return DATA_MODELS
-    var dataModels : List<DemoListDataModel> = DATA_MODELS
+    var dataModels: List<DemoListDataModel> = DATA_MODELS
     indices.forEach { dataModels = dataModels[it].datamodels ?: dataModels }
     return dataModels
   }

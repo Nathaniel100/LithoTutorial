@@ -1,8 +1,8 @@
 package io.github.ginger.lithotutorial.lithography
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.facebook.litho.Component
 import com.facebook.litho.LithoView
 import com.facebook.litho.sections.SectionContext
@@ -26,7 +26,7 @@ class LithographyActivity : NavigatableDemoActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    viewModel.model.observe(this, Observer { setList(it) })
+    viewModel.model.observe(this, Observer<Model> { setList(it) })
     setContentView(lithoView)
   }
 
@@ -41,14 +41,16 @@ class LithographyActivity : NavigatableDemoActivity() {
   }
 
   private fun createRecyclerComponent(model: Model): Component =
-      RecyclerCollectionComponent.create(sectionContext)
-          .section(LithoFeedSection.create(sectionContext)
-              .decades(model.decades)
-              .fetcher(fetcher)
-              .loading(model.isLoading)
-              .build())
-          .disablePTR(true)
+    RecyclerCollectionComponent.create(sectionContext)
+      .section(
+        LithoFeedSection.create(sectionContext)
+          .decades(model.decades)
+          .fetcher(fetcher)
+          .loading(model.isLoading)
           .build()
+      )
+      .disablePTR(true)
+      .build()
 
 
 }

@@ -17,19 +17,22 @@ import io.github.ginger.lithotutorial.lithography.components.SingleImageComponen
 object ImagesSectionSpec {
   @OnCreateChildren
   fun onCreateChildren(c: SectionContext, @Prop images: List<String>): Children =
-      Children.create()
-          .child(DataDiffSection.create<String>(c)
-              .data(images)
-              .renderEventHandler(ImagesSection.onRender(c)))
-          .build()
+    Children.create()
+      .child(
+        DataDiffSection.create<String>(c)
+          .data(images)
+          .renderEventHandler(ImagesSection.onRender(c))
+      )
+      .build()
 
   @OnEvent(RenderEvent::class)
   fun onRender(c: SectionContext, @FromEvent model: String): RenderInfo =
-      ComponentRenderInfo.create()
-          .component(
-              SingleImageComponent.create(c)
-                  .image(model)
-                  .imageAspectRatio(2f)
-                  .build())
+    ComponentRenderInfo.create()
+      .component(
+        SingleImageComponent.create(c)
+          .image(model)
+          .imageAspectRatio(2f)
           .build()
+      )
+      .build()
 }

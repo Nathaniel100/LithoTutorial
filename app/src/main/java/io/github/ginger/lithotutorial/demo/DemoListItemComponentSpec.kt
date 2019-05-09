@@ -32,8 +32,8 @@ object DemoListItemComponentSpec {
     @Prop currentIndices: IntArray
   ) {
     val activityClass = if (model.datamodels == null) model.kClass else DemoListActivity::class.java
-    val intent = Intent(c, activityClass)
+    val intent = Intent(c.androidContext, activityClass)
     intent.putExtra(INDICES, currentIndices)
-    c.startActivity(intent)
+    c.androidContext.startActivity(intent)
   }
 }

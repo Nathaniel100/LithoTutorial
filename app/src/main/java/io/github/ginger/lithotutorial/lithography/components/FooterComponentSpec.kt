@@ -17,15 +17,17 @@ object FooterComponentSpec {
 
   @OnCreateLayout
   fun onCreateLayout(
-      c: ComponentContext,
-      @Prop(resType = ResType.STRING) text: String): Component =
-      Column.create(c)
-          .paddingDip(ALL, 8f)
-          .child(
-              Text.create(c)
-                  .text(text)
-                  .textSizeDip(14f)
-                  .textColor(GRAY)
-                  .textStyle(ITALIC))
-          .build()
+    c: ComponentContext,
+    @Prop(resType = ResType.STRING) text: String
+  ): Component =
+    Column.create(c)
+      .paddingDip(ALL, 8f)
+      .child(
+        Text.create(c)
+          .text(text)
+          .textSizeDip(14f)
+          .textColor(GRAY)
+          .textStyle(ITALIC)
+      )
+      .build()
 }

@@ -1,7 +1,7 @@
 package io.github.ginger.lithotutorial.lithography.data
 
-import android.arch.lifecycle.MutableLiveData
 import android.os.AsyncTask
+import androidx.lifecycle.MutableLiveData
 
 
 class DataFetcher(val model: MutableLiveData<Model>) : Fetcher {

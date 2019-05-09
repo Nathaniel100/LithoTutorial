@@ -13,11 +13,12 @@ import com.facebook.yoga.YogaJustify.CENTER
 object LoadingComponentSpec {
   @OnCreateLayout
   fun onCreateLayout(c: ComponentContext): Component =
-      Row.create(c)
-          .justifyContent(CENTER)
-          .child(
-              Progress.create(c)
-                  .color(Color.DKGRAY)
-                  .widthDip(50f))
-          .build()
+    Row.create(c)
+      .justifyContent(CENTER)
+      .child(
+        Progress.create(c)
+          .color(Color.DKGRAY)
+          .widthDip(50f)
+      )
+      .build()
 }
